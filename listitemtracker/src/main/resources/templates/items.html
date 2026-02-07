@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lost Items Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 30px;
+        }
+        input, button {
+            padding: 8px;
+            margin: 5px 0;
+            width: 250px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td {
+            border: 1px solid #aaa;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Lost Items Tracker</h1>
+
+<!-- Add Item Form -->
+<h3>Add Lost Item</h3>
+<form th:action="@{/items/ui/add}" method="post">
+    <input type="text" name="itemName" placeholder="Item Name" required /><br>
+    <input type="text" name="foundLocation" placeholder="Found Location" required /><br>
+    <input type="text" name="foundBy" placeholder="Found By" required /><br>
+    <button type="submit">Add Item</button>
+</form>
+
+<!-- Items List -->
+<h3>All Lost Items</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Item</th>
+        <th>Location</th>
+        <th>Found By</th>
+        <th>Status</th>
+    </tr>
+
+    <tr th:each="item : ${items}">
+        <td th:text="${item.itemId}"></td>
+        <td th:text="${item.itemName}"></td>
+        <td th:text="${item.foundLocation}"></td>
+        <td th:text="${item.foundBy}"></td>
+        <td th:text="${item.status}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

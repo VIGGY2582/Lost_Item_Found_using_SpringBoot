@@ -1,7 +1,7 @@
-package com.example.listitemtracker;
+package com.example.listItemTracker;
 
-import com.example.listitemtracker.LostItem;
 import com.example.listitemtracker.LostItemService;
+import com.example.listitemtracker.LostItemTracker;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,17 +17,17 @@ public class LostItemController {
     }
 
     @PostMapping
-    public LostItem addItem(@RequestBody LostItem item) {
+    public LostItemTracker addItem(@RequestBody LostItemTracker item) {
         return service.addItem(item);
     }
 
     @GetMapping
-    public List<LostItem> getAllItems() {
+    public List<LostItemTracker> getAllItems() {
         return service.getAllItems();
     }
 
     @PutMapping("/claim/{id}")
-    public LostItem claimItem(@PathVariable Long id) {
+    public LostItemTracker claimItem(@PathVariable Long id) {
         return service.claimItem(id);
     }
 }

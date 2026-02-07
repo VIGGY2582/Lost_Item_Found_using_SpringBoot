@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "note")
-public class LostItem {
+public class LostItemTracker {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

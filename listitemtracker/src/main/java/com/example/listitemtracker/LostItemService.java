@@ -1,7 +1,5 @@
 package com.example.listitemtracker;
 
-import com.example.listitemtracker.LostItem;
-import com.example.listitemtracker.LostItemRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -16,18 +14,18 @@ public class LostItemService {
         this.repository = repository;
     }
 
-    public LostItem addItem(LostItem item) {
+    public LostItemTracker addItem(LostItemTracker item) {
         item.setStatus("FOUND");
         item.setFoundDate(LocalDate.now());
         return repository.save(item);
     }
 
-    public List<LostItem> getAllItems() {
+    public List<LostItemTracker> getAllItems() {
         return repository.findAll();
     }
 
-    public LostItem claimItem(Long id) {
-        LostItem item = repository.findById(id).orElseThrow();
+    public LostItemTracker claimItem(Long id) {
+        LostItemTracker item = repository.findById(id).orElseThrow();
         item.setStatus("CLAIMED");
         return repository.save(item);
     }

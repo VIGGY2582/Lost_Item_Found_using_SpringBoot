@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ListitemtrackerApplication {
+public class LostitemtrackerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ListitemtrackerApplication.class, args);
+		SpringApplication.run(LostitemtrackerApplication.class, args);
 	}
 
 }
