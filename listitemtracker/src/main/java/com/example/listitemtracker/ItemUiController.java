@@ -1,4 +1,4 @@
-package com.example.listitemtracker.LostItemController;
+package com.example.listitemtracker;
 
 import com.example.listitemtracker.LostItemTracker;
 import com.example.listitemtracker.LostItemRepository;
@@ -26,6 +26,12 @@ public class ItemUiController {
     @PostMapping("/add")
     public String addItem(LostItemTracker item) {
         service.addItem(item);
+        return "redirect:/items/ui";
+    }
+
+    @PostMapping("/claim/{id}")
+    public String claimItem(@PathVariable Long id) {
+        service.claimItem(id);
         return "redirect:/items/ui";
     }
 }

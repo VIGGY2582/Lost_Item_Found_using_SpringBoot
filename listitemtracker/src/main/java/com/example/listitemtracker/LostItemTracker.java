@@ -7,8 +7,10 @@ import java.time.LocalDate;
 @Table(name = "note")
 public class LostItemTracker {
 
+    public LostItemTracker() {}
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long itemId;
 
     private String itemName;

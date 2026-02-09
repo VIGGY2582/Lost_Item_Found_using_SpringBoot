@@ -1,4 +1,4 @@
-package com.example.listItemTracker;
+package com.example.listitemtracker;
 
 import com.example.listitemtracker.LostItemService;
 import com.example.listitemtracker.LostItemTracker;
@@ -26,7 +26,7 @@ public class LostItemController {
         return service.getAllItems();
     }
 
-    @PutMapping("/claim/{id}")
+    @PostMapping("/claim/{id}")
     public LostItemTracker claimItem(@PathVariable Long id) {
         return service.claimItem(id);
     }
